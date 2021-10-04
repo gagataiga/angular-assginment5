@@ -15,6 +15,7 @@ function routeConfig ($stateProvider) {
       abstract: true,
       templateUrl: 'src/public/public.html'
     })
+
     .state('public.home', {
       url: '/',
       templateUrl: 'src/public/home/home.html'
@@ -36,10 +37,23 @@ function routeConfig ($stateProvider) {
       controller: 'MenuItemsController',
       controllerAs: 'menuItemsCtrl',
       resolve: {
-        menuItems: ['$stateParams','MenuService', function ($stateParams, MenuService) {
+        menuItems: ['$stateParams', 'MenuService', function ($stateParams, MenuService) {
           return MenuService.getMenuItems($stateParams.category);
         }]
       }
-    });
+    })
+    // --------- assignment addition -------------
+    .state("public.myinfo", {
+      url: "/myinfo/",
+      templateUrl: "src/public/my-info/my-info.html",
+      controller: "InfoContorller",
+      controllerAs: "info"
+    })
+    .state("public.signUp", {
+      url: "/signUp/",
+      templateUrl: "src/public/sign-up/sign-up.html",
+      controller: "SignUpController",
+      controllerAs: "signUp"
+    })
 }
 })();
