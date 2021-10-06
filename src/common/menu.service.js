@@ -25,14 +25,11 @@ function MenuService($http, ApiPath) {
     });
   };
 
-  service.getMenuItem = ($http) => { 
-    $http(ApiPath + "cate")
-
-    })
-  }
-
+  service.getMenuItem = (short_Name) => { 
+    return $http.get(ApiPath + "/menu_items/" + short_Name + "\.json").then((response) => {
+        console.log("response", response);
+        return response.data;
+      })
+    }
 }
-
-
-
 })();

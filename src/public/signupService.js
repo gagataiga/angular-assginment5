@@ -6,8 +6,8 @@
 
   function SignUpService() {
     let service = this;
-    service.information = {};
 
+    service.information = {};
 
     service.getInfo = () => { 
       return service.information;

@@ -59,16 +59,11 @@
         <label>Favorite Meal</label>
         <input class="text" type="text" name="favorite" placeholder="pleae enter using short_name"
           ng-model="signUp.favorite">
-        <div class="err">
-          <span class="err-message" ng-show="signupForm.favorite.$invalid && signupForm.favorite.$touched">
-            Pleae enter short_name
-          </span>
-
-        </div>
-        <br>
-        <div class="signupGroup">
-          <button class="btn  btn-primary">Submit</button>
-        </div>
+      </div>
+      <br>
+      <div class="signupGroup">
+        <button class="btn  btn-primary" ng-disabled="signupForm.$invalid" ng-click="signUp.signUp()">Submit</button>
+      </div>
     </form>
   </div>
 </div>
