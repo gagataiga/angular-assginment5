@@ -113,6 +113,50 @@ h3.menu-item-title {
 }
 /* END SINGLE CATEGORY PAGE */
 
+/* myinfo-page */
+#information{
+  text-align: center;
+}
+
+#detail{
+  background-color: rgb(10, 10, 10);
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+#information a{
+    font-size: large;
+    font-family: sans-serif;
+    color: aqua;
+}
+
+/* End my info-page */
+
+
+/* signup page */
+
+.signup{
+  text-align: center;
+}
+
+.err-message{
+  opacity: 0;
+  color: rgb(161, 243, 243);
+  animation: fadeIn 2s ease 0.3s 1 forwards;
+}
+
+
+@keyframes fadeIn {
+  100% {  opacity: 1;}
+}
+
+.text{
+  width: 30%;
+  color: black;
+}
+
+
+/* End signup page */
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {

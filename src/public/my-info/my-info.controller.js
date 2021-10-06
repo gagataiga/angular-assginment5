@@ -1,12 +1,17 @@
 (function () {
   "use strict";
+  angular.module("public")
+  .controller("InfoContorller", InfoContorller);
+  
+  // Injection
+  InfoContorller.$inject = ["information"];
 
-  angular.module("public").controller("InfoContorller", InfoContorller);
-
-  function InfoContorller() { 
-    let me = this;
-    me.message = "my infor hoge";
-    console.log(me.message);
+  // 
+  function InfoContorller(information) { 
+    let ctrl = this;
+    ctrl.information = information;
+    ctrl.infoIsEmpty= Object.keys(information).length;
+    console.log("info is ", ctrl.infoIsEmpty);
   }
 
 })();

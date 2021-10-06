@@ -42,18 +42,31 @@ function routeConfig ($stateProvider) {
         }]
       }
     })
+
     // --------- assignment addition -------------
     .state("public.myinfo", {
       url: "/myinfo/",
       templateUrl: "src/public/my-info/my-info.html",
       controller: "InfoContorller",
-      controllerAs: "info"
+      controllerAs: "Info",
+      resolve: {
+        information: ["SignUpService", (SignUpService) => { 
+          console.log("info resolve;",SignUpService.getInfo().name);
+          return SignUpService.getInfo();
+        }]
+      }
     })
     .state("public.signUp", {
-      url: "/signUp/",
+      url: "/signUp",
       templateUrl: "src/public/sign-up/sign-up.html",
       controller: "SignUpController",
-      controllerAs: "signUp"
+      controllerAs: "signUp",
+      resolve: {
+        information: ["SignUpService", (SignUpService) => { 
+          console.log("signup resolve;",SignUpService.getInfo().name);
+          return SignUpService.getInfo();
+        }]
+      }
     })
 }
 })();
