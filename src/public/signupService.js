@@ -28,8 +28,7 @@
       service.information["mail"] = mail;
       service.information["phoneNum"] = phoneNum;
       service.information["favMeal"] = favMeal;
-
-      return service.information;
+      console.log(service.information);
     }
   }
 })();

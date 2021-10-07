@@ -2,20 +2,21 @@
   <h1>Your Information</h1>
   <div id="detail" ng-if="Info.infoIsEmpty">
     {{Info.infoExist}}
-    <p>FirstName: LastName : </p>
-    <p>Email address : </p>
-    <p>Phone Number : </p>
-    <p>Your Favourite Meal : </p>
+    <p>FirstName: {{Info.firstName}}</p>
+    <p>LastName: {{Info.lastName}}</p>
+    <p>Email address : {{Info.mail}} </p>
+    <p>Phone Number : {{Info.phoneNum}}</p>
+    <p>Your Favourite Meal</p>
+    <div class="fav-dish">
+      <menu-item menu-item="Info.favMeal">
+      </menu-item>
+    </div>
   </div>
-
   <div ng-if="!(Info.infoIsEmpty)">
-    <p>Sorry We have no information. I guess you haven't done sign up yet. <br> Please give me your information and
-      Click
-      down
-      below.
+    <p>Not Signed Up Yet.
     </p>
     <a ui-sref="public.signUp" class="tosignup">
-      Sign Up page
+      Sign up Now!
     </a>
   </div>
 </div>

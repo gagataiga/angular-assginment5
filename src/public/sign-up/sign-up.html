@@ -8,7 +8,7 @@
         <input class="text" type="text" name="firstname" placeholder="FirstName" required minlength="1"
           ng-model="signUp.firstName">
         <div class="err">
-          <span class="err-message"
+          <span class="aftermessage"
             ng-show="(signupForm.firstname.$error.minlength || signupForm.firstname.$error.required) && signupForm.firstname.$touched">
             Enter using more than 1 character
           </span>
@@ -21,7 +21,7 @@
         <input class="text" type="text" name="lastname" placeholder="LastName" required minlength="1"
           ng-model="signUp.lastName">
         <div class="err">
-          <span class="err-message"
+          <span class="aftermessage"
             ng-show="(signupForm.lastname.$error.minlength || signupForm.lastname.$error.required) && signupForm.lastname.$touched">
             Enter using more than 1 character
           </span>
@@ -34,7 +34,7 @@
         <label>Email Address</label>
         <input class="text" type="email" name="mail" placeholder="Email" ng-model="signUp.email" required>
         <div class="err">
-          <span class="err-message" ng-show="signupForm.mail.$invalid && signupForm.mail.$touched">
+          <span class="aftermessage" ng-show="signupForm.mail.$invalid && signupForm.mail.$touched">
             Please Enter Vaild Email Address
           </span>
         </div>
@@ -45,9 +45,9 @@
       <div class="signupGroup">
         <label>Phone Number</label>
         <input class="text" type="text" name="phonenumber" placeholder="Phone Number ###-###-####"
-          ng-model="signUp.phonenumber" required pattern="(\d{3})-(\d{3})-(\d{4})">
+          ng-model="signUp.phoneNumber" required pattern="(\d{3})-(\d{3})-(\d{4})">
         <div class="err">
-          <span class="err-message" ng-show="signupForm.phonenumber.$invalid && signupForm.phonenumber.$touched">
+          <span class="aftermessage" ng-show="signupForm.phonenumber.$invalid && signupForm.phonenumber.$touched">
             Please Enter Vaild Phone number and phone number should be in the format ###-###-####
           </span>
         </div>
@@ -57,13 +57,27 @@
       <div class="signupGroup">
 
         <label>Favorite Meal</label>
-        <input class="text" type="text" name="favorite" placeholder="pleae enter using short_name"
+        <input class="text" type="text" name="favorite" placeholder="please enter using short_name"
           ng-model="signUp.favorite">
       </div>
       <br>
       <div class="signupGroup">
-        <button class="btn  btn-primary" ng-disabled="signupForm.$invalid" ng-click="signUp.signUp()">Submit</button>
+        <button class="btn  btn-primary" ng-disabled="signupForm.$invalid " ng-click="signUp.signUp()">Submit</button>
       </div>
     </form>
+    <br>
+
+    <div class="aftermessage" ng-if="signUp.isfinishedSignUp">
+      <p>
+        Your information has been saved
+      </p>
+    </div>
+
+    <div class="aftermessage" ng-if="signUp.signUpFailure">
+      <p>
+        No such menu number exists. please enter favorite Meal using short_name
+      </p>
+    </div>
+
   </div>
 </div>

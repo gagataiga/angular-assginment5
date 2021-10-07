@@ -116,13 +116,12 @@ h3.menu-item-title {
 /* myinfo-page */
 #information{
   text-align: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#detail{
-  background-color: rgb(10, 10, 10);
-  margin-left: 40px;
-  margin-right: 40px;
-}
 
 #information a{
     font-size: large;
@@ -130,8 +129,15 @@ h3.menu-item-title {
     color: aqua;
 }
 
+.fav-dish{
+ margin-left: 33%;
+}
+
 /* End my info-page */
 
+.favourite-dish {
+  margin-left: 33.33%;
+}
 
 /* signup page */
 
@@ -139,12 +145,11 @@ h3.menu-item-title {
   text-align: center;
 }
 
-.err-message{
+.aftermessage{
   opacity: 0;
   color: rgb(161, 243, 243);
   animation: fadeIn 2s ease 0.3s 1 forwards;
 }
-
 
 @keyframes fadeIn {
   100% {  opacity: 1;}

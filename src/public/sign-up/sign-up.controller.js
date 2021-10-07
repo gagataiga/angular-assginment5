@@ -2,9 +2,9 @@
   angular.module("public")
     .controller("SignUpController", SignUpController);
   
-    SignUpController.$inject = ["information","MenuService"]; 
+    SignUpController.$inject = ["information","MenuService","SignUpService"]; 
   
-  function SignUpController(information,MenuService) { 
+  function SignUpController(information,MenuService,SignUpService) { 
 
     let self = this;
     console.log("infomation", information);
@@ -13,17 +13,36 @@
     self.lastName = information.lastName;
     self.email = information.mail;
     self.phoneNumber = information.phoneNum;
-    self.favorite = information.favMeal;
+
+    // 
 
     self.signUp = () => { 
-      if (self.favorite !== undefined || self.favorite !== "") { 
-        let promise = MenuService.getMenuItem(self.favorite.toUpperCase()).then(response => {
-          console.log("signup response success", response);
-        }).catch( error => {
-            console.log("signupCtrl", error);
-          });
+      console.log(self.favorite);
+      if (self.favorite !== undefined && self.favorite !== "") {
+        MenuService.getMenuItem(self.favorite.toUpperCase()).then(response => {
+          // everything is vaild completely 
+          
+          SignUpService.setInfo(
+            self.firstName,
+            self.lastName,
+            self.email,
+            self.phoneNumber,
+            response
+          );
+          self.isfinishedSignUp = true;
+          self.signUpFailure = false;
+        }).catch(error => {
+          console.log("signupCtrl", error);
+          // Can't find short_name that user choose in menu_items
+          self.signUpFailure = true;
+        });
+        
+      } else { 
+        console.log("empty");
+        self.signUpFailure = true;
       }
-    }
+        
+      }
   }
 })()
 

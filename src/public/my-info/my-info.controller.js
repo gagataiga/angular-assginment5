@@ -10,8 +10,18 @@
   function InfoContorller(information) { 
     let ctrl = this;
     ctrl.information = information;
-    ctrl.infoIsEmpty= Object.keys(information).length;
-    console.log("info is ", ctrl.infoIsEmpty);
+    // console.log(information);
+    // 
+    ctrl.infoIsEmpty = Object.keys(information).length;
+  
+    if (ctrl.infoIsEmpty) { 
+      ctrl.firstName = information.firstName;
+      ctrl.lastName = information.lastName;
+      ctrl.mail = information.mail;
+      ctrl.phoneNum = information.phoneNum;
+      ctrl.favMeal = information.favMeal;
+    }
+
   }
 
 })();
