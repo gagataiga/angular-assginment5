@@ -1,25 +1,24 @@
-<div id="information">
-  <h1>Your Information</h1>
-  <div id="detail" ng-if="Info.infoIsEmpty">
-    {{Info.infoExist}}
-    <p>FirstName: {{Info.firstName}}</p>
-    <p>LastName: {{Info.lastName}}</p>
-    <p>Email address : {{Info.mail}} </p>
-    <p>Phone Number : {{Info.phoneNum}}</p>
-    <p>Your Favourite Meal</p>
-    <div class="fav-dish">
-      <menu-item menu-item="Info.favMeal">
-      </menu-item>
+<div class="user-information">
+  <div class="information">
+    <h1>Your Information</h1>
+    <div class="detail" ng-if="Info.infoIsEmpty">
+      {{Info.infoExist}}
+      <p>FirstName: {{Info.firstName}}</p>
+      <p>LastName: {{Info.lastName}}</p>
+      <p>Email address : {{Info.mail}} </p>
+      <p>Phone Number : {{Info.phoneNum}}</p>
+      <p>Your Favourite Meal</p>
+      <div class="detail">
+        <menu-item menu-item="Info.favMeal">
+        </menu-item>
+      </div>
     </div>
   </div>
-  <div ng-if="!(Info.infoIsEmpty)">
+  <div class="tosignup" ng-if="!(Info.infoIsEmpty)">
     <p>Not Signed Up Yet.
     </p>
-    <a ui-sref="public.signUp" class="tosignup">
+    <a ui-sref="public.signUp">
       Sign up Now!
     </a>
   </div>
 </div>
-<!-- -1 should get result of Information
--2 if the result is empty -> user should go signUp Page
--3 if the result has a Information of users -> user can see registered information. -->

@@ -113,30 +113,32 @@ h3.menu-item-title {
 }
 /* END SINGLE CATEGORY PAGE */
 
+
+
 /* myinfo-page */
-#information{
+.user-information{
   text-align: center;
+}
+
+.information{
   flex-direction: column;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-
-#information a{
+.tosignup a{
     font-size: large;
     font-family: sans-serif;
     color: aqua;
 }
 
-.fav-dish{
- margin-left: 33%;
-}
 
 /* End my info-page */
 
 .favourite-dish {
-  margin-left: 33.33%;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 /* signup page */
